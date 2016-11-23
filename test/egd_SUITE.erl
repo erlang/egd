@@ -33,17 +33,18 @@
          image_colors/1,
          image_font/1,
          image_fans/1,
-         image_png_compliant/1]).
+         image_png_compliant/1,
+         fail/1]).
 
 suite() ->
     [{ct_hooks,[ts_install_cth]},
      {timetrap, {minutes, 1}}].
 
-all() -> 
+all() ->
     [image_create_and_destroy, image_shape,
      image_primitives, image_colors, image_font,
      image_fans,
-     image_png_compliant].
+     image_png_compliant,fail].
 
 
 init_per_suite(Config) when is_list(Config) ->
@@ -387,3 +388,9 @@ get_points(N, Out) ->
     get_points(N - 1, [get_point() | Out]).
 
 random(N) -> trunc(rand:uniform(trunc(N + 1)) - 1).
+
+fail(_Config) ->
+    ok = id(fail),
+    ok.
+
+id(Id) -> Id.
