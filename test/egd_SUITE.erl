@@ -36,10 +36,9 @@
          image_png_compliant/1]).
 
 suite() ->
-    [{ct_hooks,[ts_install_cth]},
-     {timetrap, {minutes, 1}}].
+    [{timetrap, {minutes, 1}}].
 
-all() -> 
+all() ->
     [image_create_and_destroy, image_shape,
      image_primitives, image_colors, image_font,
      image_fans,
