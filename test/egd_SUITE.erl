@@ -191,7 +191,7 @@ image_font(Config) when is_list(Config) ->
     Im = egd:create(W, H),
     Fgc = egd:color({0,130,0}),
 
-    Filename = filename:join([code:priv_dir(percept),"fonts","6x11_latin1.wingsfont"]),
+    Filename = filename:join([code:priv_dir(egd),"fonts","6x11_latin1.wingsfont"]),
     Font = egd_font:load(Filename),
 
     % simple text
