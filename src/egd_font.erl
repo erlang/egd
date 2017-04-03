@@ -23,7 +23,7 @@
 
 -module(egd_font).
 
--export([load/1, size/1, glyph/2]).
+-export([load/1, load_binary/1, size/1, glyph/2]).
 -include("egd.hrl").
 
 %% Font represenatation in ets table
@@ -64,6 +64,9 @@ glyph(Font, Code) ->
 
 load(Filename) ->
     {ok, Bin} = file:read_file(Filename),
+    load_binary(Bin).
+
+load_binary(Bin) when is_binary(Bin) ->
     Font = erlang:binary_to_term(Bin),
     load_font_header(Font).
 
